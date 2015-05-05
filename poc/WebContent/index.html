@@ -331,7 +331,33 @@
 							<div class="card-footer"></div>
 						</div>
 					</div>
-				
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h2>Top Sources</h2>
+
+                                <ul class="actions">
+                                    <li class="dropdown action-show">
+                                        <a href="" data-toggle="dropdown">
+                                            <i class="md md-more-vert"></i>
+                                        </a>
+
+                                        <div class="dropdown-menu pull-right">
+                                            <p class="p-20">
+                                                You can put anything here
+                                            </p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="card-body card-padding">
+                                <div id="donut-chart" class="flot-chart-pie"></div>
+                                <div class="flc-donut hidden-xs"></div>
+                            </div>
+                        </div>
+                    </div>
+
 					<div class="col-sm-12">
 					<div class="card">
                                 <div class="card-header">
@@ -437,12 +463,57 @@
                     });
                     
                     
-                    $.get("api?q=top_sources", function(data) {
-                    	console.log(data);
+                    $.get("api?q=top_sources", function(res) {
+                    	console.log(res);
+
+                        var pieData = [];
+                        for(var item in res) {
+                            console.log(item);
+                            var tokens = res[item].split(',');
+
+                            pieData.push({data: tokens[1], label: tokens[0]});
+                        }
+
+                        console.log(pieData);
+
+                        if($('#donut-chart')[0]){
+                            $.plot('#donut-chart', pieData, {
+                                series: {
+                                    pie: {
+                                        innerRadius: 0.5,
+                                        show: true,
+                                        stroke: {
+                                            width: 2,
+                                        }
+                                    }
+                                },
+                                legend: {
+                                    container: '.flc-donut',
+                                    backgroundOpacity: 0.5,
+                                    noColumns: 0,
+                                    backgroundColor: "white",
+                                    lineWidth: 0
+                                },
+                                grid: {
+                                    hoverable: true,
+                                    clickable: true
+                                },
+                                tooltip: true,
+                                tooltipOpts: {
+                                    content: "%p.0%, %s", // show percentages, rounding to 2 decimal places
+                                    shifts: {
+                                        x: 20,
+                                        y: 0
+                                    },
+                                    defaultTheme: false
+                                }
+
+                            });
+                        }
                     	
-                    }).fail(data) {
-                    	console.log(data);                    	
-                    };
+                    }).fail(function(res) {
+                    	console.log(res);
+                    });
                     
                     $.get("api?q=top_pl", function(res) {
                     	//console.log(res);
@@ -463,9 +534,9 @@
                                     pie: {
                                         show: true,
                                         stroke: { 
-                                            width: 2,
-                                        },
-                                    },
+                                            width: 2
+                                        }
+                                    }
                                 },
                                 legend: {
                                     container: '.flc-pie',
