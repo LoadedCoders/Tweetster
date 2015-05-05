@@ -67,6 +67,8 @@ public class APIServlet extends HttpServlet {
 		
 		if (command.equalsIgnoreCase("count")) {
 			pt = new Path(hdfs_base_uri+"/total_tweets/000000_0");
+		} else if (command.equalsIgnoreCase("words")) {
+			pt = new Path(hdfs_base_uri+"/total_words/000000_0");
 		} else if (command.equalsIgnoreCase("langs")) {
 			pt = new Path(hdfs_base_uri+"/total_languages/000000_0");
 		} else if (command.equalsIgnoreCase("users")) {

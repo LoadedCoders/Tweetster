@@ -525,6 +525,13 @@
                     	console.log(data);
                     });
                     
+                    $.get("api?q=words", function(data) {
+                    	//console.log(data);
+                    	$("#noOfWords").text(data[0]);
+                    }).fail(function(data) {
+                    	console.log(data);
+                    });
+                    
                     $.get("api?q=langs", function(data) {
                     	//console.log(data);
                     	$("#noOfLangs").text(data[0]);
@@ -533,12 +540,12 @@
                     });
                     
                     $.get("api?q=top_tags", function(data) {
-                    	console.log("tags");
+                    	//console.log("tags");
                     	
                     	var tagsTable = $("#topTagsTable");
                     	tagsTable.empty();
                     	for(var item in data) {
-                    		console.log(item);
+                    		//console.log(item);
                     		var tokens = data[item].split(',');
                     		tagsTable.append(
                     				'<tr>'+
@@ -553,11 +560,11 @@
                     
                     
                     $.get("api?q=top_sources", function(res) {
-                    	console.log(res);
+                    	//console.log(res);
 
                         var pieData = [];
                         for(var item in res) {
-                            console.log(item);
+                            //console.log(item);
                             var tokens = res[item].split(',');
 
                             pieData.push({data: tokens[1], label: tokens[0]});
@@ -608,7 +615,7 @@
                     	//console.log(res);
                     	var pieData = [];
                     	for(var item in res) {
-                    		console.log(item);
+                    		//console.log(item);
                     		var tokens = res[item].split(',');
                     		
                     		pieData.push({data: tokens[1], label: tokens[0]});
@@ -657,18 +664,22 @@
                     
                     $.get("api?q=top_users",
                             function (data) {
-                                var usersList = $("#topUsersList tr:last");
+                    			console.log(data);
+                                var usersList = $("#topUsersList");
+                                usersList.empty();
                                 for (var item in data) {
                                     console.log(item);
-                                    usersList.append(' < a class = "lv-item"' +
-                                        'href = "" >' +
-                                        '< div class = "media" >' +
-                                        '< div class = "pull-left" >' +
-                                        '< img class = "lv-img-sm"' +
-                                        'src = "img/profile-pics/1.jpg"' +
-                                        'alt = "" >' +
-                                        '< /div> < div class = "media-body" >' +
-                                        '< div class = "lv-title" > David Belle < /div> < small class = "lv-small" > Cum sociis natoque penatibus et magnis dis parturient montes < /small> < /div> < /div> < /a>'
+                                    var tokens = data[item].split('\t');
+                                    //usersList.append("<h2>"+tokens[1]+"</h2>");
+                                    usersList.append('<a class="lv-item"' +
+                                        'href="">' +
+                                        '<div class="media">' +
+                                        '<div class="pull-left">' +
+                                        '<img class="lv-img-sm"' +
+                                        'src="'+tokens[3]+'"' +
+                                        'alt="" >' +
+                                        '</div> <div class="media-body">' +
+                                        '<div class = "lv-title"> '+tokens[1]+' </div> <small class = "lv-small"> '+tokens[2]+' </small></div></div></a>'
                                     );
                                 }
                             }).fail(function (data) {
