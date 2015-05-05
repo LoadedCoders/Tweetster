@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<!--[if IE 9 ]><html class="ie9"><![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Tweetster</title>
+
+        <!-- Vendor CSS -->
+        <link href="vendors/fullcalendar/fullcalendar.css" rel="stylesheet">
+        <link href="vendors/animate-css/animate.min.css" rel="stylesheet">
+        <link href="vendors/sweet-alert/sweet-alert.min.css" rel="stylesheet">
+            
+        <!-- CSS -->
+        <link href="css/app.min.css" rel="stylesheet">
+        <style type="text/css">
+            
+        </style>
+        
+        <script src="https://maps.googleapis.com/maps/api/js"></script>
+        
+    </head>
+    <body>
+        <header id="header">
+            <ul class="header-inner">
+                <li id="menu-trigger" data-trigger="#sidebar">
+                    <div class="line-wrap">
+                        <div class="line top"></div>
+                        <div class="line center"></div>
+                        <div class="line bottom"></div>
+                    </div>
+                </li>
+            
+                <li class="logo hidden-xs">
+                    <a href="index.html">Tweetster</a>
+                </li>
+                
+                <li class="pull-right">
+                <ul class="top-menu">
+                    <li id="toggle-width">
+                        <div class="toggle-switch">
+                            <input id="tw-switch" type="checkbox" hidden="hidden">
+                            <label for="tw-switch" class="ts-helper"></label>
+                        </div>
+                    </li>
+                    <li id="top-search">
+                        <a class="tm-search" href=""></a>
+                    </li>
+                    
+                    </ul>
+                </li>
+            </ul>
+            
+            <!-- Top Search Content -->
+            <div id="top-search-wrap">
+                <input type="text">
+                <i id="top-search-close">&times;</i>
+            </div>
+        </header>
+        
+        <section id="main">
+            <aside id="sidebar">
+                <div class="sidebar-inner">
+                    <div class="si-inner">
+                        
+                        <ul class="main-menu">
+                            <li class="active"><a href="index.html"><i class="md md-home"></i> Home</a></li>
+                            <li><a href="typography.html"><i class="md md-format-underline"></i> Typography</a></li>
+                            <li class="sub-menu">
+                                <a href=""><i class="md md-now-widgets"></i> Widgets</a>
+
+                                <ul>
+                                    <li><a href="widget-templates.html">Templates</a></li>
+                                    <li><a class="active" href="widgets.html">Widgets</a></li>
+                                </ul>
+                            </li>
+                            <li class="sub-menu">
+                                <a href=""><i class="md md-view-list"></i> Tables</a>
+                
+                                <ul>
+                                    <li><a href="tables.html">Normal Tables</a></li>
+                                    <li><a href="data-tables.html">Data Tables</a></li>
+                                </ul>
+                            </li>
+                            <li class="sub-menu">
+                                <a href=""><i class="md md-my-library-books"></i> Forms</a>
+                
+                                <ul>
+                                    <li><a href="form-elements.html">Basic Form Elements</a></li>
+                                    <li><a href="form-components.html">Form Components</a></li>
+                                    <li><a href="form-examples.html">Form Examples</a></li>
+                                    <li><a href="form-validations.html">Form Validation</a></li>
+                                </ul>
+                            </li>
+                            <li class="sub-menu">
+                                <a href=""><i class="md md-swap-calls"></i>User Interface</a>
+                                <ul>
+                                    <li><a href="colors.html">Colors</a></li>
+                                    <li><a href="animations.html">Animations</a></li>
+                                    <li><a href="buttons.html">Buttons</a></li>
+                                    <li><a href="icons.html">Icons</a></li>
+                                    <li><a href="alerts.html">Alerts</a></li>
+                                    <li><a href="notification-dialog.html">Notifications & Dialogs</a></li>
+                                    <li><a href="media.html">Media</a></li>
+                                    <li><a href="components.html">Components</a></li>
+                                    <li><a href="other-components.html">Others</a></li>
+                                </ul>
+                            </li>
+                            <li class="sub-menu">
+                                <a href=""><i class="md md-trending-up"></i>Charts</a>
+                                <ul>
+                                    <li><a href="flot-charts.html">Flot Charts</a></li>
+                                    <li><a href="other-charts.html">Other Charts</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="calendar.html"><i class="md md-today"></i> Calendar</a></li>
+                            <li><a href="generic-classes.html"><i class="md md-layers"></i> Generic Classes</a></li>
+                            <li class="sub-menu">
+                                <a href=""><i class="md md-content-copy"></i> Sample Pages</a>
+                                <ul>
+                                    <li><a href="list-view.html">List View</a></li>
+                                    <li><a href="messages.html">Messages</a></li>
+                                    <li><a href="login.html">Login and Sign Up</a></li>
+                                    <li><a href="404.html">Error 404</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </aside>
+            
+            <section id="content">
+                <div class="container">
+                    <div class="block-header">
+                        <h2>Dashboard</h2>
+                    </div>
+                    
+                    <div class="map">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12">
+                                <div id="map-div">
+                                    <div class="map-canvas" id="map_canvas" style="width:100%;height:380px;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mini-charts">
+                        <div class="row">
+                            <div class="col-sm-6 col-md-3">
+                                <div class="mini-charts-item bgm-cyan">
+                                    <div class="clearfix">
+                                        <div class="chart stats-bar"></div>
+                                        <div class="count">
+                                            <small># of Tweets</small>
+                                            <h2>987,459</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-sm-6 col-md-3">
+                                <div class="mini-charts-item bgm-lightgreen">
+                                    <div class="clearfix">
+                                        <div class="chart stats-bar-2"></div>
+                                        <div class="count">
+                                            <small># of Words</small>
+                                            <h2>356,785K</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-sm-6 col-md-3">
+                                <div class="mini-charts-item bgm-orange">
+                                    <div class="clearfix">
+                                        <div class="chart stats-line"></div>
+                                        <div class="count">
+                                            <small># of Languages</small>
+                                            <h2>$ 458,778</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-sm-6 col-md-3">
+                                <div class="mini-charts-item bgm-bluegray">
+                                    <div class="clearfix">
+                                        <div class="chart stats-line-2"></div>
+                                        <div class="count">
+                                            <small># of Users</small>
+                                            <h2>23,856</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <!-- Recent Items -->
+                            <div class="card">
+                                <div class="card-header">
+                                    <h2>Popular #HashTags <small>Fetched from our Hive DB</small></h2>
+                                    <ul class="actions">
+                                        <li class="dropdown">
+                                            <a href="" data-toggle="dropdown">
+                                                <i class="md md-more-vert"></i>
+                                            </a>
+                                            
+                                            <ul class="dropdown-menu dropdown-menu-right">
+                                                <li>
+                                                    <a href="">Refresh</a>
+                                                </li>
+                                                <li>
+                                                    <a href="">Settings</a>
+                                                </li>
+                                                <li>
+                                                    <a href="">Other Settings</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="card-body m-t-0">
+                                    <table class="table table-inner table-vmiddle">
+                                        <thead>
+                                            <tr>
+                                                <th>Hash Tag</th>
+                                                <th style="width: 60px">Count</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Samsung Galaxy Mega</td>
+                                                <td class="f-500 c-cyan">$521</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Huawei Ascend P6</td>
+                                                <td class="f-500 c-cyan">$440</td>
+                                            </tr>
+                                            <tr>
+                                                <td>HTC One M8</td>
+                                                <td class="f-500 c-cyan">$680</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Samsung Galaxy Alpha</td>
+                                                <td class="f-500 c-cyan">$870</td>
+                                            </tr>
+                                            <tr>
+                                                <td>LG G3</td>
+                                                <td class="f-500 c-cyan">$690</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div id="recent-items-chart" class="flot-chart"></div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <!-- Recent Posts -->
+                            <div class="card">
+                                <div class="card-header ch-alt m-b-20">
+                                    <h2>Top Users <small>Most frequently tweeted users.</small></h2>
+                                    <ul class="actions">
+                                        <li>
+                                            <a href="">
+                                                <i class="md md-cached"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="">
+                                                <i class="md md-file-download"></i>
+                                            </a>
+                                        </li>
+                                        <li class="dropdown">
+                                            <a href="" data-toggle="dropdown">
+                                                <i class="md md-more-vert"></i>
+                                            </a>
+                                            
+                                            <ul class="dropdown-menu dropdown-menu-right">
+                                                <li>
+                                                    <a href="">Change Date Range</a>
+                                                </li>
+                                                <li>
+                                                    <a href="">Change Graph Type</a>
+                                                </li>
+                                                <li>
+                                                    <a href="">Other Settings</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                    
+<!--                                    <button class="btn bgm-cyan btn-float"><i class="md md-add"></i></button>-->
+                                </div>
+                                
+                                <div class="card-body">
+                                    <div class="listview">
+                                        <a class="lv-item" href="">
+                                            <div class="media">
+                                                <div class="pull-left">
+                                                    <img class="lv-img-sm" src="img/profile-pics/1.jpg" alt="">
+                                                </div>
+                                                <div class="media-body">
+                                                    <div class="lv-title">David Belle</div>
+                                                    <small class="lv-small">Cum sociis natoque penatibus et magnis dis parturient montes</small>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a class="lv-item" href="">
+                                            <div class="media">
+                                                <div class="pull-left">
+                                                    <img class="lv-img-sm" src="img/profile-pics/2.jpg" alt="">
+                                                </div>
+                                                <div class="media-body">
+                                                    <div class="lv-title">Jonathan Morris</div>
+                                                    <small class="lv-small">Nunc quis diam diamurabitur at dolor elementum, dictum turpis vel</small>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a class="lv-item" href="">
+                                            <div class="media">
+                                                <div class="pull-left">
+                                                    <img class="lv-img-sm" src="img/profile-pics/3.jpg" alt="">
+                                                </div>
+                                                <div class="media-body">
+                                                    <div class="lv-title">Fredric Mitchell Jr.</div>
+                                                    <small class="lv-small">Phasellus a ante et est ornare accumsan at vel magnauis blandit turpis at augue ultricies</small>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a class="lv-item" href="">
+                                            <div class="media">
+                                                <div class="pull-left">
+                                                    <img class="lv-img-sm" src="img/profile-pics/4.jpg" alt="">
+                                                </div>
+                                                <div class="media-body">
+                                                    <div class="lv-title">Glenn Jecobs</div>
+                                                    <small class="lv-small">Ut vitae lacus sem ellentesque maximus, nunc sit amet varius dignissim, dui est consectetur neque</small>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a class="lv-item" href="">
+                                            <div class="media">
+                                                <div class="pull-left">
+                                                    <img class="lv-img-sm" src="img/profile-pics/4.jpg" alt="">
+                                                </div>
+                                                <div class="media-body">
+                                                    <div class="lv-title">Bill Phillips</div>
+                                                    <small class="lv-small">Proin laoreet commodo eros id faucibus. Donec ligula quam, imperdiet vel ante placerat</small>
+                                                </div>
+                                            </div>
+                                        </a>
+<!--                                        <a class="lv-footer" href="">View All</a>-->
+                                    </div>
+                                </div>
+                                
+                                <div class="card-footer"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+        
+        <!-- Javascript Libraries -->
+        <script src="js/jquery-2.1.1.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        
+        <script src="vendors/flot/jquery.flot.min.js"></script>
+        <script src="vendors/flot/jquery.flot.resize.min.js"></script>
+        <script src="vendors/flot/plugins/curvedLines.js"></script>
+        <script src="vendors/sparklines/jquery.sparkline.min.js"></script>
+        <script src="vendors/easypiechart/jquery.easypiechart.min.js"></script>
+        
+        <script src="vendors/fullcalendar/lib/moment.min.js"></script>
+        <script src="vendors/fullcalendar/fullcalendar.min.js"></script>
+        <script src="vendors/simpleWeather/jquery.simpleWeather.min.js"></script>
+        <script src="vendors/auto-size/jquery.autosize.min.js"></script>
+        <script src="vendors/nicescroll/jquery.nicescroll.min.js"></script>
+        <script src="vendors/waves/waves.min.js"></script>
+        <script src="vendors/bootstrap-growl/bootstrap-growl.min.js"></script>
+        <script src="vendors/sweet-alert/sweet-alert.min.js"></script>
+        
+        <script src="js/flot-charts/curved-line-chart.js"></script>
+        <script src="js/flot-charts/line-chart.js"></script>
+        <script src="js/charts.js"></script>
+        
+        <script src="js/charts.js"></script>
+        <script src="js/functions.js"></script>
+        
+        <script type="text/javascript">
+            $(document).ready
+            (
+                function () {
+                    refreshMapSize();
+                }
+            );
+            function initialize() {
+                
+                $(window).resize
+                (
+                    function () { refreshMapSize();}
+                                
+                );
+                
+                console.log("Hello");
+                var mapCanvas = document.getElementById('map_canvas');
+                var mapOptions = {
+                    center: new google.maps.LatLng(0, 0),
+                    zoom: 2,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                }
+                var map = new google.maps.Map(mapCanvas, mapOptions)
+            }
+            google.maps.event.addDomListener(window, 'load', initialize);
+
+            function refreshMapSize() {
+                $("#map_canvas").width($("#map-div").width());
+//                  google.maps.event.trigger(Map.map, 'resize');
+
+//                if (Map.currentPosition)
+//                    Map.map.setCenter(Map.currentPosition);
+//                else
+//                    Map.map.setCenter(Map.initialPosition);
+            }
+    </script>
+    </body>
+  </html>
