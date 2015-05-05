@@ -1,315 +1,172 @@
 {"nodes": [
+
     {
-        "name": "Myriel",
+        "name": "t.co",
         "group": 1
     },
     {
-        "name": "Napoleon",
+        "name": "rt",
         "group": 1
     },
     {
-        "name": "Mlle.Baptistine",
+        "name": "http",
         "group": 1
     },
     {
-        "name": "Mme.Magloire",
+        "name": "the",
         "group": 1
     },
     {
-        "name": "CountessdeLo",
+        "name": "i",
         "group": 1
     },
     {
-        "name": "Geborand",
+        "name": "to",
         "group": 1
     },
     {
-        "name": "Champtercier",
+        "name": "you",
         "group": 1
     },
     {
-        "name": "Cravatte",
+        "name": "a",
         "group": 1
     },
     {
-        "name": "Count",
+        "name": "and",
         "group": 1
     },
     {
-        "name": "OldMan",
+        "name": "is",
         "group": 1
     },
     {
-        "name": "Labarre",
+        "name": "for",
+        "group": 1
+    },
+    {
+        "name": "in",
+        "group": 1
+    },
+    {
+        "name": "my",
+        "group": 1
+    },
+    {
+        "name": "of",
+        "group": 1
+    },
+    {
+        "name": "me",
+        "group": 1
+    },
+    {
+        "name": "this",
+        "group": 1
+    },
+    {
+        "name": "on",
+        "group": 1
+    },
+    {
+        "name": "it",
+        "group": 1
+    },
+    {
+        "name": "https",
+        "group": 1
+    },
+    {
+        "name": "that",
+        "group": 1
+    },
+    {
+        "name": "with",
+        "group": 1
+    },
+    {
+        "name": "be",
+        "group": 1
+    },
+    {
+        "name": "so",
+        "group": 1
+    },
+    {
+        "name": "your",
+        "group": 1
+    },
+    {
+        "name": "at",
+        "group": 1
+    },
+    {
+        "name": "t.co",
         "group": 2
     },
     {
-        "name": "Valjean",
-        "group": 2
-    },
-    {
-        "name": "Marguerite",
-        "group": 3
-    },
-    {
-        "name": "Mme.deR",
-        "group": 2
-    },
-    {
-        "name": "Isabeau",
-        "group": 2
-    },
-    {
-        "name": "Gervais",
-        "group": 2
-    },
-    {
-        "name": "Tholomyes",
-        "group": 3
-    },
-    {
-        "name": "Listolier",
-        "group": 3
-    },
-    {
-        "name": "Fameuil",
-        "group": 3
-    },
-    {
-        "name": "Blacheville",
-        "group": 3
-    },
-    {
-        "name": "Favourite",
-        "group": 3
-    },
-    {
-        "name": "Dahlia",
-        "group": 3
-    },
-    {
-        "name": "Zephine",
-        "group": 3
-    },
-    {
-        "name": "Fantine",
-        "group": 3
-    },
-    {
-        "name": "Mme.Thenardier",
+        "name": "the",
         "group": 4
     },
     {
-        "name": "Thenardier",
-        "group": 4
-    },
-    {
-        "name": "Cosette",
-        "group": 5
-    },
-    {
-        "name": "Javert",
-        "group": 4
-    },
-    {
-        "name": "Fauchelevent",
-        "group": 0
-    },
-    {
-        "name": "Bamatabois",
+        "name": "be",
         "group": 2
     },
     {
-        "name": "Perpetue",
-        "group": 3
-    },
-    {
-        "name": "Simplice",
+        "name": "you",
         "group": 2
     },
     {
-        "name": "Scaufflaire",
+        "name": "love",
         "group": 2
     },
     {
-        "name": "Woman1",
+        "name": "is",
         "group": 2
     },
     {
-        "name": "Judge",
+        "name": "don't",
         "group": 2
     },
     {
-        "name": "Champmathieu",
+        "name": "just",
         "group": 2
     },
     {
-        "name": "Brevet",
+        "name": "me",
         "group": 2
     },
     {
-        "name": "Chenildieu",
+        "name": "a",
         "group": 2
     },
     {
-        "name": "Cochepaille",
+        "name": "want",
         "group": 2
     },
     {
-        "name": "Pontmercy",
-        "group": 4
+        "name": "to",
+        "group": 2
     },
     {
-        "name": "Boulatruelle",
-        "group": 6
+        "name": "have",
+        "group": 2
     },
     {
-        "name": "Eponine",
-        "group": 4
+        "name": "get",
+        "group": 2
     },
     {
-        "name": "Anzelma",
-        "group": 4
+        "name": "was",
+        "group": 2
     },
     {
-        "name": "Woman2",
-        "group": 5
-    },
-    {
-        "name": "MotherInnocent",
-        "group": 0
-    },
-    {
-        "name": "Gribier",
-        "group": 0
-    },
-    {
-        "name": "Jondrette",
-        "group": 7
-    },
-    {
-        "name": "Mme.Burgon",
-        "group": 7
-    },
-    {
-        "name": "Gavroche",
-        "group": 8
-    },
-    {
-        "name": "Gillenormand",
-        "group": 5
-    },
-    {
-        "name": "Magnon",
-        "group": 5
-    },
-    {
-        "name": "Mlle.Gillenormand",
-        "group": 5
-    },
-    {
-        "name": "Mme.Pontmercy",
-        "group": 5
-    },
-    {
-        "name": "Mlle.Vaubois",
-        "group": 5
-    },
-    {
-        "name": "Lt.Gillenormand",
-        "group": 5
-    },
-    {
-        "name": "Marius",
-        "group": 8
-    },
-    {
-        "name": "BaronessT",
-        "group": 5
-    },
-    {
-        "name": "Mabeuf",
-        "group": 8
-    },
-    {
-        "name": "Enjolras",
-        "group": 8
-    },
-    {
-        "name": "Combeferre",
-        "group": 8
-    },
-    {
-        "name": "Prouvaire",
-        "group": 8
-    },
-    {
-        "name": "Feuilly",
-        "group": 8
-    },
-    {
-        "name": "Courfeyrac",
-        "group": 8
-    },
-    {
-        "name": "Bahorel",
-        "group": 8
-    },
-    {
-        "name": "Bossuet",
-        "group": 8
-    },
-    {
-        "name": "Joly",
-        "group": 8
-    },
-    {
-        "name": "Grantaire",
-        "group": 8
-    },
-    {
-        "name": "MotherPlutarch",
-        "group": 9
-    },
-    {
-        "name": "Gueulemer",
-        "group": 4
-    },
-    {
-        "name": "Babet",
-        "group": 4
-    },
-    {
-        "name": "Claquesous",
-        "group": 4
-    },
-    {
-        "name": "Montparnasse",
-        "group": 4
-    },
-    {
-        "name": "Toussaint",
-        "group": 5
-    },
-    {
-        "name": "Child1",
-        "group": 10
-    },
-    {
-        "name": "Child2",
-        "group": 10
-    },
-    {
-        "name": "Brujon",
-        "group": 4
-    },
-    {
-        "name": "Mme.Hucheloup",
-        "group": 8
+        "name": "much",
+        "group": 2
     }
 ], "links": [
     {
-        "source": 1,
+        "source": 3,
         "target": 0,
         "value": 1
     },
