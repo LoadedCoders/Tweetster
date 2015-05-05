@@ -1,27 +1,29 @@
 package com.poc;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
-import java.util.List;
+import java.util.Arrays;
+import java.util.Map;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class TweetServlet
- */
+import org.json.simple.JSONObject;
 
-public class TweetServlet extends HttpServlet {
+
+/**
+ * Servlet implementation class APIServlet
+ */
+public class APIServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public TweetServlet() {
+    public APIServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,23 +33,25 @@ public class TweetServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		List<String>tablesList = null;
-		 try {
-			tablesList = HiveHelper.listAllTables();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		request.setAttribute("message", "Hello Pardhuuu");
-		request.setAttribute("tables", tablesList);
-		try {
-			request.setAttribute("count", HiveHelper.noOfRows());
-		} catch (SQLException e) {
-			e.printStackTrace();
+		
+		Map<String, String[]>paramMap = request.getParameterMap();
+		String[]qStrings = paramMap.get("q");
+		String command = qStrings[0];
+		
+		JSONObject jsonObject = new JSONObject();
+		if (command.equalsIgnoreCase("count")) {
+			try {
+				String rows = HiveHelper.noOfRows();
+				jsonObject.put("count", rows);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+//				e.printStackTrace();
+				jsonObject.put("error", e.getLocalizedMessage());
+			}
 		}
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("tweet.jsp");
-		dispatcher.forward(request, response);
+		PrintWriter writer = response.getWriter();
+		writer.println(jsonObject.toJSONString());
 	}
 
 	/**

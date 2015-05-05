@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.m2.model.formula.parser.FormulaParser.returnvalue_return;
@@ -63,9 +64,9 @@ public class HiveHelper {
 		selectFirstRow(tableName);
 	}
 
-	static String noOfRows(String table) throws SQLException {
+	static String noOfRows() throws SQLException {
 		// regular hive query
-		String sql = "select count(1) from " + table;
+		String sql = "select count(*) from " + AppSettings.TABLE_NAME;
 		System.out.println("Running: " + sql);
 		ResultSet res = stmt.executeQuery(sql);
 		String count = "0";
@@ -74,6 +75,32 @@ public class HiveHelper {
 			count = res.getString(1);
 		}
 		return count;
+	}
+	
+	//TODO Write the implementation
+	static String noOfWords() throws SQLException {
+		// regular hive query
+		String sql = "select count(*) from " + AppSettings.TABLE_NAME;
+		System.out.println("Running: " + sql);
+		ResultSet res = stmt.executeQuery(sql);
+		String count = "0";
+		while (res.next()) {
+			System.out.println(res.getString(1));
+			count = res.getString(1);
+		}
+		return count;
+	}
+	
+	static ResultSet allTweetLangs(String table) throws SQLException {
+		// regular hive quer
+		String sql = "select LOWER(u_lang) as lang, count(u_lang) as count from TEST_poc group by LOWER(u_lang) ORDER BY count DESC";
+		System.out.println("Running: " + sql);
+		ResultSet res = stmt.executeQuery(sql);
+				
+		while (res.next()) {
+			System.out.println(res.getString(1));
+		}
+		return res;
 	}
 	
 	static void selectFirstRow(String table) throws SQLException {

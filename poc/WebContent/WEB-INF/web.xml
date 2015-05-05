@@ -17,7 +17,6 @@
     <servlet-name>Welcome</servlet-name>
     <url-pattern>/welcome</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>TweetServlet</servlet-name>
     <servlet-class>com.poc.TweetServlet</servlet-class>
@@ -25,5 +24,21 @@
   <servlet-mapping>
     <servlet-name>TweetServlet</servlet-name>
     <url-pattern>/tweet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Search</servlet-name>
+    <servlet-class>com.poc.Search</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Search</servlet-name>
+    <url-pattern>/search</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>APIServlet</servlet-name>
+    <servlet-class>com.poc.APIServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>APIServlet</servlet-name>
+    <url-pattern>/api</url-pattern>
   </servlet-mapping>
 </web-app>

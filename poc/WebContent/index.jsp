@@ -9,5 +9,11 @@
 <body>
 	<h1>Hello</h1>
 	<a href="tweet">Tweets</a>
+	
+	<%
+	
+	out.println(request.getAttribute("count"));
+    
+	%>
 </body>
 </html>
