@@ -79,6 +79,8 @@ public class APIServlet extends HttpServlet {
 			pt = new Path(hdfs_base_uri+"/top_places/000000_0");
 		} else if (command.equalsIgnoreCase("top_tags")) {
 			pt = new Path(hdfs_base_uri+"/top_hashtags/000000_0");
+		} else if (command.equalsIgnoreCase("top_sources")) {
+			pt = new Path(hdfs_base_uri+"/top_sources/000000_0");
 		}
 		
 		fs.exists(pt);
