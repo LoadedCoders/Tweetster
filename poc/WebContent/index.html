@@ -568,7 +568,7 @@
                     
                     $.get("api?q=top_users",
                             function (data) {
-                                var usersList = $("#topUsersList");
+                                var usersList = $("#topUsersList tr:last");
                                 for (var item in data) {
                                     console.log(item);
                                     usersList.append(' < a class = "lv-item"' +
