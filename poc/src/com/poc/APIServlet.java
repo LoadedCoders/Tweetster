@@ -56,13 +56,13 @@ public class APIServlet extends HttpServlet {
 
 		FileSystem fs = null;
 		try {
-			fs = FileSystem.get(new URI("hdfs://bivm.ibm.com:9000"), configuration);
+			fs = FileSystem.get(new URI(AppSettings.HADOOP_BASE_URL), configuration);
 		} catch (URISyntaxException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		String hdfs_base_uri = "hdfs://bivm.ibm.com:9000/biginsights/hive/warehouse";
+		String hdfs_base_uri = AppSettings.HADOOP_BASE_URL+"/biginsights/hive/warehouse";
 		Path pt = null;
 		
 		if (command.equalsIgnoreCase("count")) {
